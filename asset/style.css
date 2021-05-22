@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Courgette;
+    src: url("Courgette.ttf") format('truetype')
+}
+@font-face {
+    font-family: PermanentMarker;
+    src: url("PermanentMarker.ttf") format('truetype')
+}
+body{
+    background: rgb(60,9,7);
+    background: linear-gradient(90deg, rgba(60,9,7,1) 0%, rgba(240,10,10,1) 47%, rgba(97,7,7,1) 100%); 
+}
+
+.salute{
+    font-size: 30px;
+    font-family: Courgette;
+    /*font-family: 'Reggae One', cursive;*/
+    color: #33cacc;
+    margin-right: 30%;
+    margin-left: 20%;
+
+}
+.button{
+    border: 0.7px solid #217759;
+    background-color: tan;
+    font-size: larger;
+    text-align: center;
+    border-radius: 15%;
+    font-family: cursive;
+}
+footer{
+    background: linear-gradient(90deg, rgba(60,9,7,1) 0%, rgba(240,10,10,1) 47%, rgba(97,7,7,1) 100%); 
+font-family: cursive;
+background-image: url("images/footer_red.png");
+background-color: rgba(240,10,10,1);
+height: 330px;
+width: 100%;
+background-size: 100% 100%;
+}
+
+h1{
+    font-family: "PermanentMarker";
+}
