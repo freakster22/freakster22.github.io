@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang=en-GB>
+
 <head>
   <title>🔥 Freakster &#9749; </title>
-  <meta content="text/html; charset=utf-8"/>
-  <link rel="stylesheet" href="/path/to/jquery.mCustomScrollbar.css" />
+  <meta content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     crossorigin="anonymous">
   <link rel="stylesheet" href="asset/style.css">
@@ -11,11 +12,10 @@
 
 <body>
   <div class="content" data-mcs-theme="dark">
-    <section class="large-hero">
+    <section>
       <div class="wrapper">
-        <div class="large-hero__avatar">
-          <img class="large-hero__avatar-img" src="asset/images/me.png">
-
+        <div>
+          <img class="img-fluid avatar" src="asset/images/me.png">
         </div>
         <div class="salute">
           <h1>HEY THERE,<br>I'm ARIB, a DEVELOPER From PUNE.</h1>
@@ -25,51 +25,105 @@
         </div>
       </div>
     </section>
-    <section>
-      
-    </section>
+    <div>
 
-    <div class="contact btn-grp">
+    </div>
+
+    <div class="contact btn-grp" style="margin: 2rem 0 0 5rem;">
       <a class="button" href="mailto:hiareeb@gmail.com">Email</a>
       <a class="button" href="https://github.com/freakster22" target="_blank">Github</a>
       <a class="button" href="#" target="_blank">Resume</a>
-
     </div>
 
-  </div>
-  <footer class="footer">
-    <div class="wrapper">
-      <p>
-        Copyright ©
-        <script>document.write(new Date().getFullYear());</script>
-        | Made with ♡ by Arib| <br>
-        All models are folded by me unless noted otherwise.
-      </p>
-      <div class="right">
-        <ul>
-          <li>
-            <a href="https://github.com/freakster22/"><img src="asset/images/github.svg">Github</i></a><br>
-            <span></span>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/freakster22/"><img src="asset/images/linkedin.svg">Linked-In</a><br>
-            <span></span>
-          </li>
-          <li>
-            <a href="https://instagram.com/freakster_22/"><img src="asset/images/ig.svg">Instagram</i></a><br>
-            <span></span>
-          </li>
-          <li>
-            <a href="freaksterism.blogspot.com"><img src="asset/images/blog.svg">Blogspot</a><br>
-            <span></span>
-          </li>
-          <li>
-            <a href="mailto:hiareeb@gmail.com"><img src="asset/images/mail.svg">Gmail</a><br>
-          </li>
-        </ul>
+    <div id="columnchart_material" style="width: 450px; height: 350px; padding: 3%;"></div>
+    </div>
+  <!-- Footer-->
+  <footer class="text-center text-lg-start text-white">
+    <div class="container p-4 pb-0">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-4 mb-md-0 left">
+            <h5 class="text-uppercase"> Resume</h5>
+
+            <p>
+              Resume Here:
+            </p>
+          </div>
+          <div class="col-lg-2 mb-md-0 right">
+            <h5 class="text-uppercase">Contact</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="https://github.com/freakster22/"><img src="asset/images/github.svg">Github</i></a><br>
+                <span></span>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/freakster22/"><img
+                    src="asset/images/linkedin.svg">Linked-In</a><br>
+                <span></span>
+              </li>
+              <li>
+                <a href="https://instagram.com/freakster_22/"><img src="asset/images/ig.svg">Instagram</i></a><br>
+                <span></span>
+              </li>
+              <li>
+                <a href="freaksterism.blogspot.com"><img src="asset/images/blog.svg">Blogspot</a><br>
+                <span></span>
+              </li>
+              <li>
+                <a href="mailto:hiareeb@gmail.com"><img src="asset/images/mail.svg">Gmail</a><br>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+      <hr class="mb-4" />
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <p>
+          Copyright ©
+          <script>document.write(new Date().getFullYear());</script>
+          | Made with ♡ by Arib | <br>
+          All models are folded by me unless noted otherwise.
+        </p>
       </div>
-    </div>
+      <!-- Copyright -->
   </footer>
+  <!-- Footer Ends-->
+
+
+
+
+  <!-- Keeping Script in the end to improve performance-->
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Language", "Proficiency  "],
+        ["Java", 70],
+        ["Ht", 90],
+        ["CSS", 80],
+        ["JS", 50]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Language Proficiency', 
+        }
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  </script>
 </body>
 
 </html>
