@@ -99,17 +99,6 @@ h1 {
   transition: transform .25s ease-out;
 }
 
-footer {
-  position: sticky;
-  background-image: url("images/footer_red.png");
-  width: 100%;
-  background-size: 100% 100%;
-}
-footer > a{
-  text-decoration: none;
-  color: rgb(255, 250, 240);
-   letter-spacing: 1px;
-}
 .wrapper > p {
   position: relative;
   bottom: 1.15rem; /*20px*/
@@ -129,6 +118,29 @@ footer > a{
   right: 17%;
   bottom: -9rem;
   text-align: left;
+}
+
+.form-group{
+  line-height: 2.7rem ;
+	height: auto;
+  width: auto;
+  display: block;
+  text-align: center;
+  background-color: rgb(255, 250, 240);
+  color: rgb(26, 197, 63);
+  font-family: 'Times New Roman', Times, serif;
+}
+/*------------Footer---------------*/
+footer {
+  position: sticky;
+  background-image: url("images/footer_red.png");
+  width: 100%;
+  background-size: 100% 100%;
+}
+footer > a{
+  text-decoration: none;
+  color: rgb(255, 250, 240);
+   letter-spacing: 1px;
 }
 /*Resume Btn*/
 .ResBtn {
