@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html lang=en-GB>
+<html lang=en-GB color-mode="light"> 
 
 <head>
   <title>🔥 Freakster &#9749; </title>
@@ -8,6 +8,7 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     crossorigin="anonymous">
+  
   <link rel="stylesheet" href="asset/style.css">
 </head>
 
@@ -24,6 +25,16 @@
             change
             the world, so let's make it good.</p>
         </div>
+        <div class="right-column">
+          <div class="contact btn-grp">
+            <a class="button" href="#mail">Email</a>
+            <a class="button" href="https://github.com/freakster22" target="_blank">Github</a>
+            <a class="button" href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing" target="_blank">Resume</a>
+            <span></span>
+            <button class="color-mode-btn moon" onclick="changeToDark()">🕶️</button>
+            <button class="color-mode-btn sun" onclick="changeToLight()">🌞</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -33,16 +44,11 @@
       <button ><img src="asset/images/Text.svg"></button></a>
     </div></div>
 
-    <div class="contact btn-grp" style="margin: 2rem 0 0 5rem;">
-      <a class="button" href="mailto:hiareeb@gmail.com">Email</a>
-      <a class="button" href="https://github.com/freakster22" target="_blank">Github</a>
-      <a class="button" href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing" target="_blank">Resume</a>
-    </div>
 
     <div id="columnchart_material" style="width: 450px; height: 350px; padding: 3%;"></div>
     </div>
 
-    <section>
+    <section id="mail">
       <div class="form-group">
         <h3 style="text-align: center;">Get in Touch</h3>
     
@@ -155,6 +161,17 @@
       chart.draw(data, google.charts.Bar.convertOptions(options));
     }
   </script>
+
+<script>
+  if (
+    localStorage.getItem("color-mode") === "dark" ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      !localStorage.getItem("color-mode"))
+  ) {
+    document.documentElement.setAttribute("color-mode", "dark");
+  }
+</script>
+<script src="asset/color-mode.js"></script>
 </body>
 
 </html>
