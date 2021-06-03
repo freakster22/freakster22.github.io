@@ -1,13 +1,16 @@
 :root[color-mode="light"]{
-  --main-bg: #fafafa;
+  --bg: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+  --primaryClr: #ffffff;
   --main-color: #800000;
   --inside-font: #ec661d;
   --footer-font: rgb(255, 250, 240);
   --other-font: #222;
+  --form-bg: #F3E6E8;
   
 }
 :root[color-mode="dark"]{
-  --main-bg: #000000;
+  --bg: linear-gradient(to bottom left, #000020 0%, #0a0a0a 100%);
+  --primaryClr: #000020;
   --main-color: #3dff16;
   --inside-font: #ec661d;
   --footer-font: rgb(255, 250, 240);
@@ -33,8 +36,8 @@
 }
 
 body{
-  background-color: var(--main-bg);
-  /*background-image: url(images/bg_elec.png);*/
+  background-color: var(--primaryClr);
+  background-image: var(--bg);
   background-size:100%;
     background-repeat: repeat-y;
     background-attachment: fixed;
@@ -62,7 +65,8 @@ h1 {
 .sticky{
   position: sticky;
   position: -webkit-sticky; /* Safari */
-  background-color: var(--main-bg);
+  background-color: var(--primaryClr);
+  background-image: var(--bg);
   width: 5rem;
   height: 4rem;
   top: 20%;
@@ -164,12 +168,15 @@ line-height: 2;
 .form-group{
   line-height: 2.7rem ;
 	height: auto;
-  width: auto;
+  width: 60%;
   display: block;
   text-align: center;
-  background-color: var(--main-bg);
+  background-color: var(--primaryClr);
+  background-image: var(--bg);
   color: var(--main-color);
   font-family: 'Times New Roman', Times, serif;
+  border: var(--other-font) 2px solid;
+  background-image: var(--form-bg);
 }
 /*------------Footer---------------*/
 footer {
