@@ -44,7 +44,12 @@
       <button ><img src="asset/images/Text.svg"></button></a>
     </div></div>
 
-	<iframe src="chart.html" width="80%" height="80%"></iframe>
+	<div id="chart"></div>
+		<script>
+		fetch('chart.html')
+		.then(response => response.text())
+		.then(data => document.getElementById('content').innerHTML = data);
+</script>
 
     <div id="columnchart_material" style="width: 450px; height: 350px; padding: 3%;"></div>
     </div>
