@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Proficiency Chart</title>
+	<link rel="stylesheet" href="chartStyle.css">
+    <style>
+        /* CSS from section 2 goes here */
+        .chart-container {
+            width: 450px; /* Medium size constraint */
+            padding: 20px;
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .language-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .language-name {
+            width: 80px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .bar-wrapper {
+            flex-grow: 1;
+            height: 25px;
+            background-color: #e0e0e0;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: #3498db; /* Blue color */
+            border-radius: 4px;
+            transition: width 1s ease-out;
+            position: relative;
+        }
+
+        .bar-label {
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            /* Ensure the label is readable even when the bar is small */
+            min-width: 20px;
+            text-align: right;
+            padding-right: 3px;
+        }
+
+        .x-axis {
+            margin-top: 5px;
+            position: relative;
+            height: 15px;
+        }
+
+        .x-axis-line {
+            height: 1px;
+            background-color: #333;
+            width: 100%;
+            position: absolute;
+        }
+
+        .x-axis-break {
+            position: absolute;
+            top: 0;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .x-axis-break::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 5px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chart-container">
+    <div class="chart-title">Skill Proficiency Breakdown</div>
+
+    <div class="language-bar">
+        <div class="language-name">HTML</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 55%;">
+                <span class="bar-label">55%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-bar">
+        <div class="language-name">CSS</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 30%;">
+                <span class="bar-label">30%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-bar">
+        <div class="language-name">JAVA</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 55%;">
+                <span class="bar-label">55%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-bar">
+        <div class="language-name">Appian</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 85%;">
+                <span class="bar-label">85%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-bar">
+        <div class="language-name">SQL</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 80%;">
+                <span class="bar-label">80%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="x-axis">
+        <div class="x-axis-line"></div>
+        <div class="x-axis-break" style="left: 0;">0</div>
+        <div class="x-axis-break" style="left: 30%;">30</div>
+        <div class="x-axis-break" style="left: 50%;">50</div>
+        <div class="x-axis-break" style="left: 100%; transform: translateX(-100%);">100</div>
+    </div>
+</div>
+
+</body>
+</html>

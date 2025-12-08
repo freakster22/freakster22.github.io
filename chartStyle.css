@@ -1,0 +1,89 @@
+.chart-container {
+    width: 450px; /* Medium size constraint: Adjust this for smaller/larger */
+    padding: 20px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.language-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.language-name {
+    width: 80px; /* Fixed width for Y-Axis labels (Languages) */
+    font-weight: bold;
+    font-size: 14px;
+    color: #444;
+}
+
+.bar-wrapper {
+    flex-grow: 1; /* Takes up remaining space */
+    height: 25px;
+    background-color: #e0e0e0; /* Light background for unachieved score */
+    position: relative;
+    border-radius: 4px;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #3498db; /* **The requested Blue color** */
+    border-radius: 4px;
+    transition: width 1s ease-out; /* Smooth animation when loading */
+    position: relative;
+}
+
+.bar-label {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    min-width: 20px;
+    text-align: right;
+    padding-right: 3px;
+}
+
+/* X-Axis (Proficiency %) Styling */
+.x-axis {
+    margin-top: 5px;
+    position: relative;
+    height: 15px;
+}
+
+.x-axis-line {
+    height: 1px;
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+}
+
+.x-axis-break {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    font-size: 10px;
+    color: #666;
+}
+
+.x-axis-break::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 5px;
+    background-color: #333;
+}
