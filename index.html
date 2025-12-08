@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html lang=en-GB color-mode="light"> 
+<html lang=en-GB color-mode="light">
 
 <head>
   <title>🔥 Freakster &#9749; </title>
@@ -8,17 +8,16 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     crossorigin="anonymous">
-  
+
   <link rel="stylesheet" href="asset/style.css">
-      <style>
-  #chart {
-  height: 100vh; /* Full viewport height */
-  width: 100%;
-  overflow: hidden; /* No scrollbars */
-  display: flex;
-  flex-direction: column;
-}
-</style>
+  <style>
+    #chart {
+      width: 100%;
+      height: 100vh;
+      /* Viewport Height: ensures full screen coverage */
+      border: none
+    }
+  </style>
 </head>
 
 <body>
@@ -35,10 +34,12 @@
             the world, so let's make it good.</p>
         </div>
         <div class="right-column">
-          <div class="contact btn-grp">
+          <div class="btn-grp">
             <a class="button" href="#mail">Email</a>
             <a class="button" href="https://github.com/freakster22" target="_blank">Github</a>
-            <a class="button" href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing" target="_blank">Resume</a>
+            <a class="button"
+              href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing"
+              target="_blank">Resume</a>
             <span></span>
             <button class="color-mode-btn moon" onclick="changeToDark()">🕶️</button>
             <button class="color-mode-btn sun" onclick="changeToLight()">🌞</button>
@@ -48,120 +49,143 @@
     </section>
 
     <div class="wrapsticky">
-    <div class="sticky">
-      <a href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing" style="text-decoration: none;">Resume<br>
-      <button ><img src="asset/images/Text.svg"></button></a>
-    </div></div>
+      <div class="sticky">
+        <a href="https://docs.google.com/document/d/1MLZqHSiFB9a62WnnxhmItwJ-A1Ob_7kkR5_x8i8hdNk/edit?usp=sharing"
+          style="text-decoration: none;">Resume<br>
+          <button><img src="asset/images/Text.svg"></button></a>
+      </div>
+    </div>
 
-	<div id="chart"></div>
-		<script>
-		fetch('chart.html')
-		.then(response => response.text())
-		.then(data => document.getElementById('chart').innerHTML = data);
-		const container = document.getElementById('chart');
-    container.style.height = '100vh';
-</script>
+    <iframe id="chart" src="chart.html"></iframe>
 
     <section id="mail">
-      <div class="form-group form">
-        <h3 style="text-align: center;">Get in Touch</h3>
-    
-        <form id="contact-form" class="form-group" action="https://formsubmit.co/hiareeb@gmail.com" method="POST">
-          <div class="form-group row">
-          <label>Name</label>
-          <input class="input-field" class="form-row" type="text" name="name" placeholder="Full Name" required></div>
-            
-          <div class="form-group row">
-          <label>Subject</label>
-          <input class="input-field" class="form-row" type="text" name="_subject" placeholder="Subject"></div>
-    
-          <div class="form-group row">
-          <label>Email</label>
-          <input class="input-field" class="form-row" type="text" name="email" placeholder="Your Email" required></div>
-    
-          <div class="form-group row">
-          <label>Message</label>
-          <textarea class="input-field" class="form-row form-control-lg" name="Msg" placeholder="Your Message"></textarea></div>
-    
-          <input id="submit-btn" class="btn btn-primary" type="submit" value="Send">
-        </form>
+      <div class="container">
+        <h3 class="text-center mb-4 contHead">Get in Touch</h3>
+        <div class="row justify-content-center align-items-start">
+          <div class="col-md-4 left-col">
+            <h6>I'd like to hear from you!</h6>
+            <p style="margin-bottom: 40px;">If you have any inquiries or just want to say hi, please use the contact
+              form!</p>
+            <div class="email-section">
+              <span><img class="icon-img" src="asset/images/gmail.svg" alt="Gmail"></span><a
+                href="mailto:hiareeb@gmail.com" class="email-link">hiareeb@gmail.com</a>
+            </div>
+            <div class="social-section">
+              <span>👍</span>
+              <a href="#">📷</a>
+              <a href="#">📘</a>
+              <a href="#">🐦</a>
+              <a href="#">💼</a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <form id="contact-form" action="https://formsubmit.co/hiareeb@gmail.com" method="POST">
+              <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+              </div>
+
+              <div class="form-group">
+                <label>Subject</label>
+                <input class="form-control" type="text" name="_subject" placeholder="Subject">
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="email" name="email" placeholder="Your Email" required>
+              </div>
+
+              <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control form-control-lg" name="Msg" placeholder="Your Message"></textarea>
+              </div>
+
+              <input id="submit-btn" class="btn btn-primary" type="submit" value="Send">
+            </form>
+          </div>
+        </div>
       </div>
     </section>
-  <!-- Footer-->
-  <footer class="text-center text-lg-start text-white">
-    <div class="container p-4 pb-0">
-      <!-- Section: Links -->
-      <section>
-        <!--Grid row-->
-        <div class="row">
-          <!--Grid column-->
-          <div class="col-lg-4 mb-md-0 left">
-            <h5 class="text-uppercase"> Resume</h5>
-            <div class="ResBtn">
-            <p>
-              Resume Here&#8594;
-            </p> </div>
-          </div>
-          <div class="col-lg-2 mb-md-0 right">
-            <h5 class="text-uppercase">Contact</h5>
+    <!-- Footer-->
+    <footer class="text-center text-lg-start text-white">
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section>
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-4 mb-md-0 left">
+              <h5 class="text-uppercase"> Resume</h5>
+              <div class="ResBtn">
+                <p>
+                  Resume Here&#8594;
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-2 mb-md-0 right">
+              <h5 class="text-uppercase">Contact</h5>
 
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="https://github.com/freakster22/" class="link"><img src="asset/images/github.svg">Github</a><br>
-                <span></span>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/freakster22/" class="link"><img
-                    src="asset/images/linkedin.svg">Linked-In</a><br>
-                <span></span>
-              </li>
-              <li>
-                <a href="https://instagram.com/freakster_22/" class="link"><img src="asset/images/ig.svg">Instagram</a><br>
-                <span></span>
-              </li>
-              <li>
-                <a href="https://www.freaksterism.blogspot.com" class="link"><img src="asset/images/blog.svg">Blogspot</a><br>
-                <span></span>
-              </li>
-              <li>
-                <a href="mailto:hiareeb@gmail.com" class="link"><img src="asset/images/mail.svg">Gmail</a><br>
-              </li>
-            </ul>
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="https://github.com/freakster22/" class="link"><img
+                      src="asset/images/github.svg">Github</a><br>
+                  <span></span>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/freakster22/" class="link"><img
+                      src="asset/images/linkedin.svg">Linked-In</a><br>
+                  <span></span>
+                </li>
+                <li>
+                  <a href="https://instagram.com/freakster_22/" class="link"><img
+                      src="asset/images/ig.svg">Instagram</a><br>
+                  <span></span>
+                </li>
+                <li>
+                  <a href="https://www.freaksterism.blogspot.com" class="link"><img
+                      src="asset/images/blog.svg">Blogspot</a><br>
+                  <span></span>
+                </li>
+                <li>
+                  <a href="mailto:hiareeb@gmail.com" class="link"><img src="asset/images/mail.svg">Gmail</a><br>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
           </div>
-          <!--Grid column-->
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+        <span>&nbsp;</span>
+        <div class="text-center p-3" style="background-color: rgb(173, 64, 64); ">
+          <p>
+            Copyright ©
+            <script>document.write(new Date().getFullYear());</script>
+            | Made with ♡ by Arib | <br>
+            All models are folded by me unless noted otherwise.
+          </p>
         </div>
-        <!--Grid row-->
-      </section>
-      <!-- Section: Links -->
-      <span>&nbsp;</span>
-      <div class="text-center p-3" style="background-color: rgb(173, 64, 64); ">
-        <p>
-          Copyright ©
-          <script>document.write(new Date().getFullYear());</script>
-          | Made with ♡ by Arib | <br>
-          All models are folded by me unless noted otherwise.
-        </p>
-      </div>
-      <!-- Copyright -->
-      
-  </footer>
-  <!-- Footer Ends-->
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer Ends-->
 
 
 
 
-  <!-- Keeping Script in the end to improve performance-->
+    <!-- Keeping Script in the end to improve performance-->
 
-<script>
-  if (
-    localStorage.getItem("color-mode") === "dark" ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches &&
-      !localStorage.getItem("color-mode"))
-  ) {
-    document.documentElement.setAttribute("color-mode", "dark");
-  }
-</script>
-<script src="asset/color-mode.js"></script>
+    <script>
+      if (
+        localStorage.getItem("color-mode") === "dark" ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches &&
+          !localStorage.getItem("color-mode"))
+      ) {
+        document.documentElement.setAttribute("color-mode", "dark");
+      }
+    </script>
+    <script src="asset/color-mode.js"></script>
 </body>
 
 </html>

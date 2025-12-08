@@ -1,11 +1,12 @@
 :root[color-mode="light"]{
-  --bg: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
-  --primaryClr: #ffffff;
+  --bg: linear-gradient(315deg, #fffff4 0%, #d7e1ec 74%);
+  --primaryClr: ##d7d7d7;
   --main-color: #800000;
   --inside-font: #ec661d;
   --footer-font: rgb(255, 250, 240);
   --other-font: #222;
-  --form-bg: #F3E6E8;
+  --form-bg: #f4c499;
+  --form-head: #8D5626;
   
 }
 :root[color-mode="dark"]{
@@ -15,6 +16,8 @@
   --inside-font: #ec661d;
   --footer-font: rgb(255, 250, 240);
   --other-font: #f2f2f2;
+  --form-bg: #451952;
+  --form-head: #F2613F;
 }
 :root[color-mode="light"] .sun{
   display: none;
@@ -171,13 +174,44 @@ line-height: 2;
   width: 60%;
   display: block;
   text-align: center;
-  background-color: var(--primaryClr);
+  background-color: var(--form-bg);
   background-image: var(--bg);
-  color: var(--main-color);
+  color: var(--form-head);
   font-family: 'Times New Roman', Times, serif;
-  border: var(--other-font) 2px solid;
-  background-image: var(--form-bg);
+  border: var(--bg) 2px solid;
 }
+.contHead{
+	color: var(--form-head);
+  font-weight: bolder;
+  font-size: x-large;
+  font-family: Courgette, cursive;
+}
+.form-control{
+  background-color: transparent;
+}
+.left-col {
+  color: var(--form-head);
+  flex: 1;
+  max-width: 400px;
+}
+.email-section, .social-section {
+  color: var(--form-head);
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+.icon-img{
+  color: var(--inside-font);
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+
+}
+#contact-form {
+        flex: 1.5;  /* Makes the form section a bit wider than the text section */
+        background-color: rgba(var(--form-head), 0.6) ;
+    }
 /*------------Footer---------------*/
 footer {
   position: sticky;

@@ -18,7 +18,7 @@
         .chart-title {
             text-align: center;
             margin-bottom: 20px;
-            color: #333;
+            color: #ec661d;
         }
 
         .language-bar {
@@ -101,9 +101,34 @@
 <body>
 
 <div class="chart-container">
-    <div class="chart-title">Skill Proficiency Breakdown</div>
+    <div class="chart-title">Skill Proficiency</div>
+
+        <div class="language-bar">
+        <div class="language-name">Appian</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 85%;">
+                <span class="bar-label">85%</span>
+            </div>
+        </div>
+    </div>
 
     <div class="language-bar">
+        <div class="language-name">SQL</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 80%;">
+                <span class="bar-label">80%</span>
+            </div>
+        </div>
+    </div>
+	<div class="language-bar">
+        <div class="language-name">JAVA</div>
+        <div class="bar-wrapper">
+            <div class="bar-fill" style="width: 55%;">
+                <span class="bar-label">55%</span>
+            </div>
+        </div>
+    </div>
+	<div class="language-bar">
         <div class="language-name">HTML</div>
         <div class="bar-wrapper">
             <div class="bar-fill" style="width: 55%;">
@@ -121,37 +146,10 @@
         </div>
     </div>
 
-    <div class="language-bar">
-        <div class="language-name">JAVA</div>
-        <div class="bar-wrapper">
-            <div class="bar-fill" style="width: 55%;">
-                <span class="bar-label">55%</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="language-bar">
-        <div class="language-name">Appian</div>
-        <div class="bar-wrapper">
-            <div class="bar-fill" style="width: 85%;">
-                <span class="bar-label">85%</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="language-bar">
-        <div class="language-name">SQL</div>
-        <div class="bar-wrapper">
-            <div class="bar-fill" style="width: 80%;">
-                <span class="bar-label">80%</span>
-            </div>
-        </div>
-    </div>
-
     <div class="x-axis">
         <div class="x-axis-line"></div>
         <div class="x-axis-break" style="left: 0;">0</div>
-        <div class="x-axis-break" style="left: 30%;">30</div>
+        <div class="x-axis-break" style="left: 30%;">20</div>
         <div class="x-axis-break" style="left: 50%;">50</div>
         <div class="x-axis-break" style="left: 100%; transform: translateX(-100%);">100</div>
     </div>
