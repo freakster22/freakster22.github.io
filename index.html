@@ -10,6 +10,15 @@
     crossorigin="anonymous">
   
   <link rel="stylesheet" href="asset/style.css">
+      <style>
+  #chart {
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden; /* No scrollbars */
+  display: flex;
+  flex-direction: column;
+}
+</style>
 </head>
 
 <body>
@@ -48,11 +57,10 @@
 		<script>
 		fetch('chart.html')
 		.then(response => response.text())
-		.then(data => document.getElementById('content').innerHTML = data);
+		.then(data => document.getElementById('chart').innerHTML = data);
+		const container = document.getElementById('chart');
+    container.style.height = '100vh';
 </script>
-
-    <div id="columnchart_material" style="width: 450px; height: 350px; padding: 3%;"></div>
-    </div>
 
     <section id="mail">
       <div class="form-group form">
@@ -143,30 +151,6 @@
 
 
   <!-- Keeping Script in the end to improve performance-->
-  <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['bar'] });
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Language", "Proficiency  "],
-        ["Java", 70],
-        ["Ht", 90],
-        ["CSS", 80],
-        ["JS", 50]
-      ]);
-
-      var options = {
-        chart: {
-          title: 'Language Proficiency', 
-        }
-      };
-
-      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-      chart.draw(data, google.charts.Bar.convertOptions(options));
-    }
-  </script>
 
 <script>
   if (
