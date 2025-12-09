@@ -1,5 +1,5 @@
 .chart-container {
-    width: 450px; /* Medium size constraint: Adjust this for smaller/larger */
+    width: 450px;
     padding: 20px;
     border: 1px solid #ccc;
     font-family: Arial, sans-serif;
@@ -19,25 +19,25 @@
 }
 
 .language-name {
-    width: 80px; /* Fixed width for Y-Axis labels (Languages) */
+    width: 80px;
     font-weight: bold;
     font-size: 14px;
     color: #444;
 }
 
 .bar-wrapper {
-    flex-grow: 1; /* Takes up remaining space */
+    flex-grow: 1;
     height: 25px;
-    background-color: #e0e0e0; /* Light background for unachieved score */
+    background-color: #e0e0e0;
     position: relative;
     border-radius: 4px;
 }
 
 .bar-fill {
     height: 100%;
-    background-color: #3498db; /* **The requested Blue color** */
+    background-color: #3498db;
     border-radius: 4px;
-    transition: width 1s ease-out; /* Smooth animation when loading */
+    transition: width 1s ease-out;
     position: relative;
 }
 
@@ -55,7 +55,6 @@
     padding-right: 3px;
 }
 
-/* X-Axis (Proficiency %) Styling */
 .x-axis {
     margin-top: 5px;
     position: relative;
