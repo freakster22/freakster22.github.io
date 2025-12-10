@@ -268,14 +268,13 @@
       <script src="asset/color-mode.js"></script>
       <script>
   // Choose a unique namespace & key, e.g., using your github username + site
-  const ns = 'https://freakster22.github.io';
-  const key = 'site_visits';
+  const ns = 'freakster22.github.io';
 
   // Increment and fetch the new value on page load
-  fetch(`https://api.countapi.xyz/hit/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`)
+  fetch(`https://api.counterapi.dev/v1/${encodeURIComponent(ns)}/hit`)
     .then(r => r.json())
     .then(data => {
-      document.getElementById('count').textContent = data.value;
+      document.getElementById('count').textContent = data.count;
     })
     .catch(err => {
       console.error('CountAPI error:', err);
