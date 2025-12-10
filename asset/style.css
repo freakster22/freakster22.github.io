@@ -6,6 +6,9 @@
   --footer-font: rgb(255, 250, 240);
   --other-font: #b01616;
   --form-bg: #b3ceed;
+  --border-color: rgba(97, 7, 14, 0.3);
+  --border-color-light: rgba(179, 206, 237, 0.5);
+  --name-color: #2e065f;
   
 }
 :root[color-mode="dark"]{
@@ -16,6 +19,9 @@
   --footer-font:rgb(3, 8, 1);
   --other-font: #f2f2f2;
   --form-bg: #700f8d;
+  --border-color: rgba(139, 69, 255, 0.4);
+  --border-color-light: rgba(27, 221, 176, 0.3);
+  --name-color: #d6b60d;
 }
 :root[color-mode="light"] .sun{
   display: none;
@@ -191,7 +197,7 @@ section {
 
 .salute {
   font-size: 2.1rem;
-  font-family: Courgette;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: var(--main-color);
   flex: 1;
   animation: slideInUp 0.8s ease-out 0.5s both;
@@ -225,7 +231,7 @@ section {
 
 :root[color-mode="dark"] .skills-sidebar {
   background: linear-gradient(135deg, rgba(100, 80, 150, 0.25) 0%, rgba(50, 30, 100, 0.15) 100%);
-  border-color: rgba(139, 69, 255, 0.3);
+  border-color: var(--border-color);
   box-shadow: 
     0 12px 45px rgba(0, 0, 0, 0.4),
     inset 1px 1px 0 rgba(200, 150, 255, 0.2),
@@ -239,7 +245,7 @@ section {
     inset 1px 1px 0 rgba(200, 150, 255, 0.3),
     inset -1px -1px 0 rgba(0, 0, 0, 0.4),
     0 0 60px rgba(139, 69, 255, 0.25);
-  border-color: rgba(139, 69, 255, 0.5);
+  border-color: var(--border-color-light);
 }
 
 .wrapper {
@@ -251,7 +257,10 @@ section {
 }
 
 .salute h1 {
+  color: var(--name-color);
   animation: slideInUp 0.8s ease-out 0.6s both;
+  margin-left: 2rem;
+  font-family: "FrenchCanon";
 }
 
 .salute p {
@@ -259,6 +268,7 @@ section {
   font-size: small;
   font-weight: lighter;
   color: var(--inside-font);
+  font-family: "Courgette";
 }
 .sticky{
   position: sticky;
@@ -271,7 +281,7 @@ section {
   border-radius: 1.3rem;
   border: red dashed 1px;
   padding: 0.1rem 0.1rem 0.5rem 0.8rem;
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 .wrapsticky{
   position: fixed;
@@ -283,10 +293,9 @@ section {
   color: var(--other-font);
   font-size:  1.3rem;
   text-align: center;
-  border-radius: 15%;
-  font-family: cursive;
+  border-radius: 32%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 0.4rem;
-  text-decoration: none;
   margin: .3rem;
 }
 .button:hover{
@@ -363,7 +372,7 @@ section {
   font-weight: lighter;
   font-family: cursive;
   bottom: -4rem;
-  left: 70%;
+  left: 20%;
 }
 .left {
   right: 17%;
@@ -372,16 +381,33 @@ section {
 }
 
 .form-group{
-  line-height: 2.7rem ;
-	height: auto;
-  width: 60%;
+  line-height: 0.7rem;
+  height: auto;
+  width: 100%;
   display: block;
   text-align: center;
   background-color: var(--form-bg);
   background-image: var(--bg);
   color: var(--main-color);
-  font-family: 'Times New Roman', Times, serif;
-  border: var(--bg) 2px solid;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-group:focus-within {
+  border-color: var(--border-color-light);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.1);
 }
 .contHead{
 	color: var(--main-color);
@@ -422,26 +448,61 @@ footer {
   height: auto;
   background-size: 100% 80%;
   background-repeat: no-repeat;
-  
+  background-attachment: fixed;
+  box-shadow: 
+    0 -8px 30px rgba(0, 0, 0, 0.2);
+  border-top: 2px solid var(--border-color);
+  padding-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+footer::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(0px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 footer .text-center.p-3 {
   position: relative;
-  bottom: 0;
-  left: 15%;
-  right: 15%;
-  width: 60%;
-  margin: 0;
+  text-align: center;
+  width: auto;
+  background: transparent;
+  backdrop-filter: none;
+  z-index: 1;
+}
+
+.col-lg-2.right {
+  margin-left: auto;
+  text-align: right;
+  padding: 1.5rem;
+}
+
+.col-lg-4.left {
+  padding: 1.5rem;
 }
 
 footer img {
   max-width: 2rem;
   height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
 }
+
+footer img:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) brightness(1.1);
+  transform: scale(1.1);
+}
+
 footer > a{
   text-decoration: none;
   color: var(--footer-font);
-   letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 /*Resume Btn*/
 .ResBtn {
@@ -499,7 +560,7 @@ footer > a{
   padding: 2.5rem;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--border-color);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   display: flex;
@@ -515,6 +576,7 @@ footer > a{
 
 .card:hover {
   transform: translateY(-8px);
+  border-color: var(--border-color-light);
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.2),
     inset 1px 1px 0 rgba(255, 255, 255, 0.3),
@@ -533,7 +595,7 @@ footer > a{
   overflow: hidden;
   padding: 2rem;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.2) 100%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--border-color);
   border-radius: 20px;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -551,12 +613,12 @@ footer > a{
     0 18px 50px rgba(0, 0, 0, 0.2),
     inset 1px 1px 0 rgba(255, 255, 255, 0.35),
     inset -1px -1px 0 rgba(0, 0, 0, 0.15);
-  border-color: rgba(255, 255, 255, 0.45);
+  border-color: var(--border-color-light);
 }
 
 :root[color-mode="dark"] .chart-card {
   background: linear-gradient(135deg, rgba(100, 80, 150, 0.2) 0%, rgba(50, 30, 100, 0.1) 100%);
-  border-color: rgba(139, 69, 255, 0.25);
+  border-color: var(--border-color);
   box-shadow: 
     0 12px 40px rgba(0, 0, 0, 0.3),
     inset 1px 1px 0 rgba(200, 150, 255, 0.15),
@@ -568,7 +630,7 @@ footer > a{
     0 18px 50px rgba(139, 69, 255, 0.2),
     inset 1px 1px 0 rgba(200, 150, 255, 0.25),
     inset -1px -1px 0 rgba(0, 0, 0, 0.35);
-  border-color: rgba(139, 69, 255, 0.4);
+  border-color: var(--border-color-light);
 }
 
 .chart-card iframe {
