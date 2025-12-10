@@ -41,7 +41,7 @@
   </header>
   <div class="content" data-mcs-theme="dark">
     <section>
-      <div class="wrapper">
+      <div class="salute-section">
         <div class="salute">
           <h1>HEY THERE,<br>I'm ARIB, a DEVELOPER From Bangalore.</h1>
           <p>Hello! I'm a passionate Sr. software engineer with 6 yrs of experience. I love to blend creativity with technology, 
@@ -49,6 +49,14 @@
           <p>When I'm not writing code, you can find me immersed in the vibrant worlds of anime and gaming, which
             inspire my work and keep my imagination alive. I believe that a playful spirit and a love for storytelling
             can enhance even the most technical projects. Let's connect and create something amazing together!</p>
+        </div>
+        
+        <div class="card chart-card skills-sidebar">
+          <div class="card-title">Skills</div>
+          <iframe id="chart" src="chart.html"></iframe>
+          <div class="chart-summary">
+            <p>I've built expertise across multiple technologies through hands-on experience with <strong>Appian BPM</strong>, <strong>SQL databases</strong>, and core web technologies. Each skill represents real-world projects and continuous learning. I'm also Appian certified.</p> 
+          </div>
         </div>
       </div>
       </section>
@@ -62,19 +70,56 @@
       </div>
 
       <div class="cards-container">
-        <div class="card chart-card">
-          <div class="card-title">Skills</div>
-          <iframe id="chart" src="chart.html"></iframe>
+        <div class="card interests-card">
+          <div class="card-title">Interests</div>
+          <ul class="interests-list">
+            <li class="interest-item">
+              <span class="interest-icon">👹</span>
+              <span class="interest-text">Anime</span>
+            </li>
+            <li class="interest-item">
+              <span class="interest-icon">🎨</span>
+              <span class="interest-text">Art</span>
+            </li>
+            <li class="interest-item">
+              <span class="interest-icon">🎮</span>
+              <span class="interest-text">Gaming</span>
+            </li>
+            <li class="interest-item">
+              <span class="interest-icon">☕</span>
+              <span class="interest-text">Coffee</span>
+            </li>
+            <li class="interest-item">
+              <span class="interest-icon">🏍️</span>
+              <span class="interest-text">MotoGP</span>
+            </li>
+          </ul>
         </div>
         
-        <div class="card">
-          <div class="card-title">Card 2</div>
-          <p>Add your content here</p>
-        </div>
-        
-        <div class="card">
-          <div class="card-title">Card 3</div>
-          <p>Add your content here</p>
+        <div class="card interests-card">
+          <div class="card-title">Projects</div>
+          <ul class="interests-list projects-list">
+            <li class="project-item">
+              <span class="project-name">CDETS</span>
+              <span class="project-description">Core data extraction and transformation system</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">REALM</span>
+              <span class="project-description">Real-time enterprise asset lifecycle management platform</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">Snowman</span>
+              <span class="project-description">Insurance tracking and patient/MD form tracking system</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">EA-GCP</span>
+              <span class="project-description">Employee data migration tool from CDSL to GCP servers (60M records)</span>
+            </li>
+            <li class="project-item">
+              <span class="project-name">ECA</span>
+              <span class="project-description">Employee Conduct Activities compliance tool for to identify & mitigate potential risk, fraud, conflict of interest & reputational damage @HSBC</span>
+            </li>
+          </ul>
         </div>
       </div>
         <div class="container">
@@ -82,7 +127,7 @@
           <div class="row justify-content-center align-items-start">
             <div class="col-md-4 left-col">
               <h6>I'd like to hear from you!</h6>
-              <p style="margin-bottom: 40px;">If you have any inquiries or just want to say hi, please use the contact
+              <p style="margin-bottom: 40px;">If you have any inquiries or anime suggestions or a brew recipe, please use the contact
                 form!</p>
               <div class="email-section">
                 <span><img class="icon-img" src="asset/images/gmail.svg" alt="Gmail"></span><a

@@ -1,3 +1,19 @@
+:root[color-mode="light"]{
+    --chart-bg-color: #eedede;
+    --chart-text-color: #000000;
+    --chart-bar-color: #2e5f15;
+    --chart-axis-color: #333333;
+    --chart-label-color: #744C0F;
+}
+
+:root[color-mode="dark"]{
+    --chart-bg-color: #4f4e4e;
+    --chart-text-color: #eedede;
+    --chart-bar-color: #4e6542;
+    --chart-axis-color: #cccccc;
+    --chart-label-color: #ab86ef;
+}
+
 .chart-container {
     width: 100%;
     padding: 0;
@@ -10,7 +26,7 @@
 .chart-title {
     text-align: center;
     margin-bottom: 15px;
-    color: #333;
+    color: var(--chart-text-color);
     font-size: 1rem;
 }
 
@@ -24,23 +40,57 @@
     width: 70px;
     font-weight: bold;
     font-size: 13px;
-    color: #444;
+    color: var(--chart-label-color);
 }
 
 .bar-wrapper {
     flex-grow: 1;
     height: 20px;
-    background-color: #e0e0e0;
+    background-color: var(--chart-bg-color);
     position: relative;
     border-radius: 4px;
 }
 
 .bar-fill {
     height: 100%;
-    background-color: #3498db;
+    background-color: var(--chart-bar-color);
     border-radius: 4px;
     transition: width 1s ease-out;
     position: relative;
+}
+
+.bar-fill.highlighted {
+    filter: brightness(1.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    transition: all 0.2s ease;
+}
+
+.skill-tooltip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeInScale 0.2s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .bar-label {
@@ -48,7 +98,7 @@
     top: 50%;
     right: 5px;
     transform: translateY(-50%);
-    color: #fff;
+    color: var(--chart-text-color);
     font-size: 11px;
     font-weight: bold;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -65,7 +115,7 @@
 
 .x-axis-line {
     height: 1px;
-    background-color: #333;
+    background-color: var(--chart-axis-color);
     width: 100%;
     position: absolute;
 }
@@ -75,7 +125,7 @@
     top: 0;
     text-align: center;
     font-size: 9px;
-    color: #666;
+    color: var(--chart-label-color);
 }
 
 .x-axis-break::before {
@@ -86,5 +136,5 @@
     transform: translateX(-50%);
     width: 1px;
     height: 4px;
-    background-color: #333;
+    background-color: var(--chart-axis-color);
 }
