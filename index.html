@@ -242,6 +242,9 @@
               | Made with ♡ by Arib | <br>
               All models are folded by me unless noted otherwise.
             </p>
+            <!-- somewhere in the body -->
+<div id="visitor-count" style="font-weight:600;">Visitors: 
+  <span id="count">Loading...</span></div>
           </div>
           <!-- Copyright -->
 
@@ -263,6 +266,23 @@
         }
       </script>
       <script src="asset/color-mode.js"></script>
+      <script>
+  // Choose a unique namespace & key, e.g., using your github username + site
+  const ns = 'https://freakster22.github.io';
+  const key = 'site_visits';
+
+  // Increment and fetch the new value on page load
+  fetch(`https://api.countapi.xyz/hit/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`)
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('count').textContent = data.value;
+    })
+    .catch(err => {
+      console.error('CountAPI error:', err);
+      // Optionally fallback to show "-" or nothing
+      document.getElementById('count').textContent = '∞';
+    });
+</script>
 </body>
 
 </html>
