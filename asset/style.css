@@ -409,6 +409,10 @@ section {
     inset 1px 1px 0 rgba(255, 255, 255, 0.25),
     inset -1px -1px 0 rgba(0, 0, 0, 0.1);
 }
+.form-group > label{
+  display: flex;
+  text-align: left;
+}
 .contHead{
 	color: var(--main-color);
   font-weight: bolder;
@@ -475,6 +479,7 @@ footer .text-center.p-3 {
   background: transparent;
   backdrop-filter: none;
   z-index: 1;
+  color: var(--border-color);
 }
 
 .col-lg-2.right {
