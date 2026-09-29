@@ -1,44 +1,39 @@
-var toggleColorMode = function toggleColorMode(e) {
-    var isLight = e.currentTarget.classList.contains("sun");
-    var newMode = isLight ? "light" : "dark";
-    
-    // Change color mode first
-    document.documentElement.setAttribute("color-mode", newMode);
-    localStorage.setItem("color-mode", newMode);
-    
-    // Send message to iframe to update its theme too
+var applyTheme = function applyTheme(mode) {
+    var root = document.documentElement;
+    var themeToggle = document.getElementById("theme-toggle");
+  
+    root.setAttribute("color-mode", mode);
+    localStorage.setItem("color-mode", mode);
+  
+    if (themeToggle) {
+      themeToggle.checked = mode === "dark";
+    }
+  
     var chartIframe = document.getElementById("chart");
     if (chartIframe && chartIframe.contentWindow) {
-      chartIframe.contentWindow.postMessage({ colorMode: newMode }, "*");
+      chartIframe.contentWindow.postMessage({ colorMode: mode }, "*");
     }
-    
-    // Add jump animation to the moon button that will become visible
-    setTimeout(function() {
-      var moonBtn = document.querySelector(".color-mode-btn.moon");
-      if (moonBtn) {
-        moonBtn.classList.add("jump");
-        setTimeout(function() {
-          moonBtn.classList.remove("jump");
-        }, 500);
-      }
-    }, 50);
-    
-    // Add jump animation to the sun button that will become visible
-    setTimeout(function() {
-      var sunBtn = document.querySelector(".color-mode-btn.sun");
-      if (sunBtn) {
-        sunBtn.classList.add("jump");
-        setTimeout(function() {
-          sunBtn.classList.remove("jump");
-        }, 500);
-      }
-    }, 50);
   };
-
-  // Get the buttons in the DOM
-  var toggleColorButtons = document.querySelectorAll(".color-mode-btn");
   
-  // Set up event listeners
-  toggleColorButtons.forEach(function(btn) {
-    btn.addEventListener("click", toggleColorMode);
-  });
+  var themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("change", function () {
+      applyTheme(themeToggle.checked ? "dark" : "light");
+  
+      var switchWrap = document.querySelector(".theme-switch-wrap");
+      if (switchWrap) {
+        switchWrap.classList.remove("jump");
+        void switchWrap.offsetWidth;
+        switchWrap.classList.add("jump");
+        setTimeout(function () {
+          switchWrap.classList.remove("jump");
+        }, 300);
+      }
+    });
+  }
+  
+  var initialMode = localStorage.getItem("color-mode") || "light";
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")) {
+    initialMode = "dark";
+  }
+  applyTheme(initialMode);
