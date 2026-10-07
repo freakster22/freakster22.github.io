@@ -19,16 +19,6 @@ var applyTheme = function applyTheme(mode) {
   if (themeToggle) {
     themeToggle.addEventListener("change", function () {
       applyTheme(themeToggle.checked ? "dark" : "light");
-  
-      var switchWrap = document.querySelector(".theme-switch-wrap");
-      if (switchWrap) {
-        switchWrap.classList.remove("jump");
-        void switchWrap.offsetWidth;
-        switchWrap.classList.add("jump");
-        setTimeout(function () {
-          switchWrap.classList.remove("jump");
-        }, 300);
-      }
     });
   }
   
