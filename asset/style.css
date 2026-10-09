@@ -251,7 +251,6 @@ section {
 /*------------Footer---------------*/
 footer {
   position: sticky;
-  background-image: url("images/footer_red.png");
   width: 100%;
   height: auto;
   background-size: 100% 80%;
@@ -283,7 +282,7 @@ footer::before {
   gap: 1.5rem;
   margin: 3rem auto;
   padding: 2.5rem;
-  max-width: 1600px;
+  max-width: 1280px;
   min-height: 300px;
 }
 
@@ -303,6 +302,11 @@ footer::before {
   transition: all 0.3s ease;
   transform: translateZ(0);
   min-height: 450px;
+}
+
+.card.skills-sidebar {
+  flex-basis: 620px;
+  min-height: 760px;
 }
 
 .card:hover {
@@ -404,7 +408,8 @@ footer::before {
 /* Modern Interests Card Styling */
 .interests-card {
   grid-column: span 1;
-  min-height: auto;
+  min-height: 360px;
+  padding: 1.75rem;
 }
 
 .interests-list {
@@ -521,6 +526,11 @@ footer::before {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+.interests-card .interest-item,
+.interests-card .project-item {
+  padding: 1rem;
+}
+
 .project-name {
   font-size: 1.1rem;
   font-weight: 700;
@@ -546,7 +556,20 @@ footer::before {
 }
 
 /* Responsive adjustments for smaller screens */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+  .salute-section {
+    flex-direction: column;
+  }
+
+  .card.skills-sidebar {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
   .interests-card {
     grid-column: span 1;
   }

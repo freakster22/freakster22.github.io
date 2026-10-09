@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<html lang=en-GB color-mode="light">
-
+<html lang="en-GB" color-mode="light">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>🔥 Freakster &#9749; </title>
-  <meta content="text/html; charset=utf-8" />
   <!-- Social / Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://freakster22.github.io/" />
 <meta property="og:title" content="Freakster's Portfolio" />
 <meta property="og:description" content="Sr. Technology Specialist" />
-<meta property="og:image" content="https://freakster22.github.io/asset/images/96.jpg" />
-<meta property="og:image:width" content="600" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image" content="https://freakster22.github.io/asset/images/folio.jpg" />
+<meta property="og:image:width" content="1774" />
+<meta property="og:image:height" content="1646" />
 <meta property="og:image:type" content="image/jpg" />
 <meta property="og:image:alt" content="Freakster's Portfolio - Arib Anwar" />
 
@@ -20,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Freakster's Portfolio — Arib Anwar" />
 <meta name="twitter:description" content="Sr. Software Developer" />
-<meta name="twitter:image" content="https://freakster22.github.io/asset/images/96.jpg" />
+<meta name="twitter:image" content="https://freakster22.github.io/asset/images/foli.jpg" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +45,7 @@
       </div>
       <div class="right-column">
           <div class="btn-grp">
-            <a class="action-btn" href="#mail">Email</a>
+            <a class="action-btn" href="#contact">Email</a>
             <a class="action-btn" href="https://github.com/freakster22" target="_blank">Github</a>
             <a class="action-btn"
               href="https://drive.google.com/file/d/1WXtrKPTLXQHtS7k_1Jn4odkW1ENv_J14/view?usp=drive_link"
@@ -70,11 +69,13 @@
     <section>
       <div class="salute-section">
         <div class="salute">
-          <h2>HEY, THERE<br>I'm <h1>A R I B &nbsp;  A N W A R ,</h1>a DEVELOPER from Bangalore.</h1>
-          <p>Hello! I'm a passionate Sr. Technology Specialist with 7 yrs of experience. I love to blend creativity with technology, 
+          <h2>HEY, THERE<br>I'm</h2>
+          <h1>A R I B &nbsp;  A N W A R ,</h1><p>a DEVELOPER from Bangalore.</p>
+          <p>Hello! I'm a Sr. Technology Specialist with 7 yrs of experience. I love to blend creativity with technology,
             often engaging in "vibe coding" fueled by coffee where I let the rhythm of my favorite tunes guide my programming flow.</p>
+            <p>I am an avid reader, always looking for new stories to dive into. I love learning about technological advancements, new scientific discoveries, and innovative solutions.</p>
           <p>When I'm not writing code, you can find me immersed in the vibrant worlds of anime and gaming, which
-            inspire my work and keep my imagination alive. I believe that a playful spirit and a love for storytelling
+            inspire my work and keeps my imagination alive. I believe that a playful spirit and a love for storytelling
             can enhance even the most technical projects. Let's connect and create something amazing together!</p>
         </div>
         
@@ -200,10 +201,10 @@
         Send
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
-      </section>
       <!-- Footer Start -->
 <footer class="glass-footer">
   <div class="container">
@@ -220,7 +221,7 @@
         </p>
         
         <!-- Resume Button -->
-        <a href="/resume.pdf" target="_blank" class="btn-resume">
+        <a href="https://drive.google.com/file/d/1WXtrKPTLXQHtS7k_1Jn4odkW1ENv_J14/view?usp=drive_link" target="_blank" class="btn-resume">
           View Resume <span>→</span>
         </a>
       </div>
@@ -283,6 +284,42 @@
       </script>
       <script src="asset/color-mode.js"></script>
       <script src="asset/counter.js"></script>
+      <script>
+        const contactForm = document.querySelector(".contact-form");
+        if (contactForm) {
+          const submitButton = contactForm.querySelector(".send-btn");
+          const formStatus = contactForm.querySelector(".form-status");
+
+          contactForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            submitButton.disabled = true;
+            formStatus.textContent = "Sending...";
+            formStatus.dataset.state = "sending";
+
+            try {
+              const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: new FormData(contactForm),
+                headers: { Accept: "application/json" }
+              });
+
+              if (!response.ok) {
+                throw new Error(`Form submission failed with status ${response.status}`);
+              }
+
+              contactForm.reset();
+              formStatus.textContent = "Thanks! Your message has been sent. The form is now clear.";
+              formStatus.dataset.state = "success";
+            } catch (error) {
+              console.error("Contact form submission failed.", error);
+              formStatus.textContent = "Sorry, your message could not be sent. Please try again.";
+              formStatus.dataset.state = "error";
+            } finally {
+              submitButton.disabled = false;
+            }
+          });
+        }
+      </script>
 </body>
 
 </html>

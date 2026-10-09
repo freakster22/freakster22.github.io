@@ -251,6 +251,22 @@
     transform: translateY(0)
 }
 
+.send-btn:disabled {
+    cursor: wait;
+    opacity: .7;
+}
+
+.form-status {
+    min-height: 1.4em;
+    margin: 0;
+    color: var(--maroon);
+    font-size: .9rem;
+}
+
+.form-status[data-state="error"] {
+    color: #b42318;
+}
+
 /* Responsive */
 @media (max-width:900px) {
     .contact-wrap {
