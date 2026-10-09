@@ -4,38 +4,41 @@ document.addEventListener("DOMContentLoaded", function() {
   const yearEl = document.getElementById('year');
   if(yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // CONFIGURATION FOR VISITOR COUNT (ABACUS)
-  // Create a unique identifier for YOUR site. 
-  // Example: "arib-portfolio-hits"
-  const counterId = encodeURIComponent("arib-portfolio-v1"); 
-  
-  // API Endpoint for ABACUS
-  // GET request increments count by 1 and returns JSON
-  const apiUrl = `https://abacus.jasoncameron.dev/hit/${counterId}/increment`;
+  const countEl = document.getElementById('count');
+  if (!countEl) return;
 
-  async function fetchVisitorCount() {
-    try {
-      const response = await fetch(apiUrl);
-      
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
-      const data = await response.json();
-      
-      // Update DOM
-      const countEl = document.getElementById('count');
-      if(countEl && typeof data.count !== 'undefined') {
-        // Format number with commas (e.g., 1,234)
-        countEl.innerText = data.count.toLocaleString();
-      } else if (countEl) {
-         countEl.innerText = "0"; // Fallback if data structure changes
-      }
+  const namespace = encodeURIComponent("freakster22.github.io");
+  const key = encodeURIComponent("visitors");
+  const callbackName = "updatePortfolioVisitorCount";
+  const script = document.createElement("script");
+  const timeout = window.setTimeout(() => {
+    countEl.textContent = "—";
+    console.error("Timed out fetching visitor count.");
+    script.remove();
+    delete window[callbackName];
+  }, 10000);
 
-    } catch (error) {
-      console.error("Error fetching visitor count:", error);
-      const countEl = document.getElementById('count');
-      if(countEl) countEl.innerText = "—"; // Show dash instead of ugly error text
+  window[callbackName] = function(data) {
+    window.clearTimeout(timeout);
+    script.remove();
+
+    if (data && Number.isFinite(data.value)) {
+      countEl.textContent = data.value.toLocaleString();
+    } else {
+      countEl.textContent = "—";
+      console.error("Visitor count API returned an invalid response.", data);
     }
-  }
+    delete window[callbackName];
+  };
 
-  fetchVisitorCount();
+  script.async = true;
+  script.src = `https://abacus.jasoncameron.dev/hit/${namespace}/${key}?callback=${callbackName}`;
+  script.onerror = function() {
+    window.clearTimeout(timeout);
+    countEl.textContent = "—";
+    script.remove();
+    delete window[callbackName];
+    console.error("Failed to load visitor count from Abacus.");
+  };
+  document.head.appendChild(script);
 });
